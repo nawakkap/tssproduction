@@ -1,0 +1,76 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Displaydate:</b>
+  <%= @finishgood.displaydate %>
+</p>
+
+<p>
+  <b>UnitTotal:</b>
+  <%= @finishgood.unit_total %>
+</p>
+
+<p>
+  <b>Extprogcode:</b>
+  <%= @finishgood.extprogcode %>
+</p>
+
+<p>
+  <b>Prodname:</b>
+  <%= @finishgood.prodname %>
+</p>
+
+<p>
+  <b>Mach:</b>
+  <%= @finishgood.mach %>
+</p>
+
+<p>
+  <b>Planned Time:</b>
+  <%= @finishgood.production.plannedtime %>
+</p>
+
+<p>
+  <b>Production ID:</b>
+  <%= @finishgood.production.id %>
+</p>
+
+<p>
+  <b>Production Detail:</b>
+</p>
+
+<%= form_for :productions, :url => update_multiple_productions_path, :method => :put do |f|-%>
+<%= f.submit %>
+<%= hidden_field_tag "production_id", @finishgood.production.id %>
+<table class="table table-striped table-bordered table-condensed">
+	<tr class="row">
+		<th class="span1">Reason Code</th>
+		<th class="span4">Description</th>
+		<th class="span2">#</th>
+		<th class="span2">Time</th>
+		<th class="span8">Remark</th>
+	</tr>
+	<% @finishgoodreason.each do |fgr| %>
+	<tr class="row">
+		<td><%= fgr.seq %></td>
+		<td><%= fgr.description %></td>
+		<td>
+			<%= text_field_tag "productiondetail_time[#{fgr.seq}]",
+		 			(@productiondetails.find_by_productionreason_id(fgr.seq).slot_time if 		@productiondetails.find_by_productionreason_id(fgr.seq)) , 
+					:class => "inputsmall" %>
+			<%= "x5"%>
+		</td>
+		<td><%= @productiondetails.find_by_productionreason_id(fgr.seq).time if 		@productiondetails.find_by_productionreason_id(fgr.seq)%></td>
+		<td>
+			<%= text_field_tag "productiondetail_remark[#{fgr.seq}]",
+		 			(@productiondetails.find_by_productionreason_id(fgr.seq).remark if 		@productiondetails.find_by_productionreason_id(fgr.seq)) , 
+					:class => "inputlarge" %>
+		</td>
+	</tr>
+	<% end %>
+</table>
+<% end %>
+
+
+<%= link_to 'Edit', edit_finishgood_path(@finishgood) %> |
+<%= link_to 'Back', finishgoods_path %>

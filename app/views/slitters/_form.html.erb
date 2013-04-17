@@ -1,0 +1,41 @@
+<%= form_for(@slitter) do |f| %>
+  <% if @slitter.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@slitter.errors.count, "error") %> prohibited this slitter from being saved:</h2>
+
+      <ul>
+      <% @slitter.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :slukey %><br />
+    <%= f.text_field :slukey %>
+  </div>
+  <div class="field">
+    <%= f.label :slitteddate %><br />
+    <%= f.text_field :slitteddate %>
+  </div>
+  <div class="field">
+    <%= f.label :thickness %><br />
+    <%= f.text_field :thickness %>
+  </div>
+  <div class="field">
+    <%= f.label :machine %><br />
+    <%= f.text_field :machine %>
+  </div>
+  <div class="field">
+    <%= f.label :slittedcoil %><br />
+    <%= f.number_field :slittedcoil %>
+  </div>
+  <div class="field">
+    <%= f.label :slitterdweight %><br />
+    <%= f.text_field :slitterdweight %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

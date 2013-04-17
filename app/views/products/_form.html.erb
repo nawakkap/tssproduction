@@ -1,0 +1,101 @@
+<%= form_for(@product) do |f| %>
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% @product.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :id %><br />
+    <%= f.text_field :id %>
+  </div>
+  <div class="field">
+    <%= f.label :displayid %><br />
+    <%= f.text_field :displayid %>
+  </div>
+  <div class="field">
+    <%= f.label :nameeng %><br />
+    <%= f.text_field :nameeng %>
+  </div>
+  <div class="field">
+    <%= f.label :nameth %><br />
+    <%= f.text_field :nameth %>
+  </div>
+  <div class="field">
+    <%= f.label :nameinit %><br />
+    <%= f.text_field :nameinit %>
+  </div>
+  <div class="field">
+    <%= f.label :color %><br />
+    <%= f.text_field :color %>
+  </div>
+  <div class="field">
+    <%= f.label :size %><br />
+    <%= f.text_field :size %>
+  </div>
+  <div class="field">
+    <%= f.label :thmin %><br />
+    <%= f.text_field :thmin %>
+  </div>
+  <div class="field">
+    <%= f.label :threp %><br />
+    <%= f.text_field :threp %>
+  </div>
+  <div class="field">
+    <%= f.label :film %><br />
+    <%= f.text_field :film %>
+  </div>
+  <div class="field">
+    <%= f.label :estw %><br />
+    <%= f.text_field :estw %>
+  </div>
+  <div class="field">
+    <%= f.label :wmin %><br />
+    <%= f.text_field :wmin %>
+  </div>
+  <div class="field">
+    <%= f.label :wmax %><br />
+    <%= f.text_field :wmax %>
+  </div>
+  <div class="field">
+    <%= f.label :acctw %><br />
+    <%= f.text_field :acctw %>
+  </div>
+  <div class="field">
+    <%= f.label :pcspack %><br />
+    <%= f.number_field :pcspack %>
+  </div>
+  <div class="field">
+    <%= f.label :pcstruck %><br />
+    <%= f.number_field :pcstruck %>
+  </div>
+  <div class="field">
+    <%= f.label :wagekg %><br />
+    <%= f.text_field :wagekg %>
+  </div>
+  <div class="field">
+    <%= f.label :wdisplay %><br />
+    <%= f.text_field :wdisplay %>
+  </div>
+  <div class="field">
+    <%= f.label :inprod %><br />
+    <%= f.text_field :inprod %>
+  </div>
+  <div class="field">
+    <%= f.label :pct %><br />
+    <%= f.text_field :pct %>
+  </div>
+  <div class="field">
+    <%= f.label :vat %><br />
+    <%= f.text_field :vat %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

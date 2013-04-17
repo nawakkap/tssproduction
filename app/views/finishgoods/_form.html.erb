@@ -1,0 +1,57 @@
+<%= form_for(@finishgood) do |f| %>
+  <% if @finishgood.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@finishgood.errors.count, "error") %> prohibited this finishgood from being saved:</h2>
+
+      <ul>
+      <% @finishgood.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :displaydate %><br />
+    <%= f.text_field :displaydate %>
+  </div>
+  <div class="field">
+    <%= f.label :unita %><br />
+    <%= f.number_field :unita %>
+  </div>
+  <div class="field">
+    <%= f.label :unita2 %><br />
+    <%= f.number_field :unita2 %>
+  </div>
+  <div class="field">
+    <%= f.label :unitb %><br />
+    <%= f.number_field :unitb %>
+  </div>
+  <div class="field">
+    <%= f.label :unitc %><br />
+    <%= f.number_field :unitc %>
+  </div>
+  <div class="field">
+    <%= f.label :unitd %><br />
+    <%= f.number_field :unitd %>
+  </div>
+  <div class="field">
+    <%= f.label :procdate %><br />
+    <%= f.date_select :procdate %>
+  </div>
+  <div class="field">
+    <%= f.label :extprogcode %><br />
+    <%= f.text_field :extprogcode %>
+  </div>
+  <div class="field">
+    <%= f.label :prodname %><br />
+    <%= f.text_field :prodname %>
+  </div>
+  <div class="field">
+    <%= f.label :mach %><br />
+    <%= f.text_field :mach %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

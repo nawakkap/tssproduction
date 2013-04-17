@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Mc:</b>
+  <%= @machineinfo.mc_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @machineinfo.name %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @machineinfo.type %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @machineinfo.status %>
+</p>
+
+
+<%= link_to 'Edit', edit_machineinfo_path(@machineinfo) %> |
+<%= link_to 'Back', machineinfos_path %>

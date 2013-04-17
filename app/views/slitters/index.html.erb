@@ -1,0 +1,37 @@
+<h1>Listing slitters</h1>
+
+<%= form_tag('/slitters', :method => :get, :class => 'form-inline') do %>
+		<%= label_tag(:slitteddate, "Slitted Date") %>
+  	<%= text_field_tag :slitteddate, "Select a date", :class => 'datepicker' %>
+		<%= submit_tag "Search"%>
+<% end -%>
+
+<table class="table table-striped table-bordered table-condensed">
+  <tr>
+    <th>Slitteddate</th>
+    <th>Thickness</th>
+    <th>Machine</th>
+    <th>Slittedcoil</th>
+    <th>Slittedweight</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @slitters.each do |slitter| %>
+  <tr>
+    <td><%= slitter.slitteddate %></td>
+    <td><%= slitter.thickness %></td>
+    <td><%= slitter.machine %></td>
+    <td><%= slitter.slittedcoil %></td>
+    <td><%= slitter.slitterdweight %></td>
+    <td><%= link_to 'Show', slitter %></td>
+    <td><%= link_to 'Edit', edit_slitter_path(slitter) %></td>
+    <td><%= link_to 'Destroy', slitter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Slitter', new_slitter_path %>

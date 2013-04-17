@@ -1,0 +1,29 @@
+<h1>Listing machineinfos</h1>
+
+<table>
+  <tr>
+    <th>Mc</th>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Status</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @machineinfos.each do |machineinfo| %>
+  <tr>
+    <td><%= machineinfo.mc_id %></td>
+    <td><%= machineinfo.name %></td>
+    <td><%= machineinfo.type %></td>
+    <td><%= machineinfo.status %></td>
+    <td><%= link_to 'Show', machineinfo %></td>
+    <td><%= link_to 'Edit', edit_machineinfo_path(machineinfo) %></td>
+    <td><%= link_to 'Destroy', machineinfo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Machineinfo', new_machineinfo_path %>

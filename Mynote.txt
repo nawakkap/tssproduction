@@ -1,0 +1,3 @@
+rails g scaffold product id:string displayid:string nameeng:string nameth:string nameinit:string size:string thmin:string threp:string film:string estw:float wmin:float wmax:float acctw:float pcspack:integer pcstruck:integer wagekg:float wdisplay:string inprod:string pct:float vat:string
+
+rails g scaffold finishgood displaydate:string unita:integer unita2:integer unitb:integer unitc:integer unitd:integer procdate:date extprogcode:string prodname:string mach:string 

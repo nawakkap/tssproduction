@@ -1,0 +1,45 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  id: MyString
+  displayid: MyString
+  nameeng: MyString
+  nameth: MyString
+  nameinit: MyString
+  size: MyString
+  thmin: MyString
+  threp: MyString
+  film: MyString
+  estw: 1.5
+  wmin: 1.5
+  wmax: 1.5
+  acctw: 1.5
+  pcspack: 1
+  pcstruck: 1
+  wagekg: 1.5
+  wdisplay: MyString
+  inprod: MyString
+  pct: 1.5
+  vat: MyString
+
+two:
+  id: MyString
+  displayid: MyString
+  nameeng: MyString
+  nameth: MyString
+  nameinit: MyString
+  size: MyString
+  thmin: MyString
+  threp: MyString
+  film: MyString
+  estw: 1.5
+  wmin: 1.5
+  wmax: 1.5
+  acctw: 1.5
+  pcspack: 1
+  pcstruck: 1
+  wagekg: 1.5
+  wdisplay: MyString
+  inprod: MyString
+  pct: 1.5
+  vat: MyString

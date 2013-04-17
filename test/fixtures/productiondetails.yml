@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  productionreason_id: 1
+  time: 1
+  production_id: MyString
+
+two:
+  productionreason_id: 1
+  time: 1
+  production_id: MyString

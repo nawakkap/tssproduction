@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  plannedtime: 1
+  staff: MyString
+  fg_ukey: MyString
+
+two:
+  plannedtime: 1
+  staff: MyString
+  fg_ukey: MyString

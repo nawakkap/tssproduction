@@ -1,0 +1,67 @@
+<h1>Listing finishgoods</h1>
+
+<%= form_tag('/finishgoods', :method => :get, :class => 'form-inline') do %>
+		<%= label_tag(:proddate, "Produced Date") %>
+  	<%= text_field_tag :proddate, "Select a date", :class => 'datepicker' %>
+		<%= submit_tag "Search"%>
+<% end -%>
+
+<%= form_for :finishgoods, :url => update_multiple_finishgoods_path, :method => :put do |f|-%>
+<%= f.submit %>
+<table class="table table-striped table-bordered table-condensed">
+  <tr>
+    <th>Date</th>
+    <th>Lot ID</th>
+    <th>Product Name</th>
+    <th>Machine</th>
+		<th>Planned T</th>
+		<th>Down T</th>
+		<th>Staff</th>
+    <th>A</th>
+    <th>B</th>
+    <th>C</th>
+    <th>D</th>
+		<th>Scrap</th>
+		<th>Total</th>
+		<th>PR Rate</th>
+		<th>UT Rate</th>
+		<th>Throughput</th>
+    <th></th>
+  </tr>
+
+
+	<% @finishgoods.each do |finishgood| %>
+		<%= hidden_field_tag "proddate", finishgood.displaydate %>
+  	<tr>
+    	<td><%= finishgood.displaydate %></td>
+    	<td><%= finishgood.extprogcode %></td>
+    	<td><%= finishgood.prodname %></td>
+    	<td><%= finishgood.mach %></td>
+			<td><%= text_field_tag "finishgoods_ptime[#{finishgood.ukey}]", finishgood.production.plannedtime, :class => "inputsmall" %></td>
+			<td><%= finishgood.sum_downtime %></td>
+			<td>
+				<%= select_tag "finishgoods_staff[#{finishgood.ukey}]", 
+						options_from_collection_for_select(@staffs, 'id', 'name', finishgood.production.staff), 				
+						:class => "inputmedium"  %>
+			</td>
+    	<td><%= finishgood.unita + finishgood.unita2  %></td>
+			<td><%= finishgood.unitb %></td>
+			<td><%= finishgood.unitc %></td>
+			<td><%= finishgood.unitd %></td>
+			<td>
+				<%= text_field_tag "finishgoods_scrap[#{finishgood.ukey}]", finishgood.production.scrap, :class => "inputsmall" %>
+			  <%= "#{number_with_precision finishgood.scrap_rate,:precision => 2} %" %>
+			</td>
+    	<td><%= conditional_tag :strong, "#{finishgood.unit_total} (#{number_with_precision finishgood.bcd_pct,:precision => 2}%)" , {:class =>'hilight_1'}, finishgood.bcd_pct > 1 %></td>
+			<td><%= "#{number_with_precision finishgood.pr_rate,:precision => 2}" %></td>
+			<td><%= "#{number_with_precision finishgood.ut_rate,:precision => 2}" %></td>
+			<td><%= "#{number_with_precision finishgood.throughput1,:precision => 0}/#{number_with_precision finishgood.throughput2,:precision => 0}" %></td>
+    	<td><%= link_to 'Show', show_productiondetail_finishgood_path(finishgood) %></td>
+  	</tr>
+	<% end %>
+</table>
+<% end -%>
+
+<br />
+
+

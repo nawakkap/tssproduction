@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  slukey: MyString
+  slitteddate: MyString
+  thickness: MyString
+  machine: MyString
+  slittedcoil: 1
+  slitterdweight: 1.5
+
+two:
+  slukey: MyString
+  slitteddate: MyString
+  thickness: MyString
+  machine: MyString
+  slittedcoil: 1
+  slitterdweight: 1.5

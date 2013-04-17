@@ -1,0 +1,27 @@
+<h1>Listing productiondetails</h1>
+
+<table>
+  <tr>
+    <th>Productionreason</th>
+    <th>Time</th>
+    <th>Production</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @productiondetails.each do |productiondetail| %>
+  <tr>
+    <td><%= productiondetail.productionreason_id %></td>
+    <td><%= productiondetail.time %></td>
+    <td><%= productiondetail.production_id %></td>
+    <td><%= link_to 'Show', productiondetail %></td>
+    <td><%= link_to 'Edit', edit_productiondetail_path(productiondetail) %></td>
+    <td><%= link_to 'Destroy', productiondetail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Productiondetail', new_productiondetail_path %>

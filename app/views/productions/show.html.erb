@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Plannedtime:</b>
+  <%= @production.plannedtime %>
+</p>
+
+<p>
+  <b>Staff:</b>
+  <%= @production.staff %>
+</p>
+
+<p>
+  <b>Fg ukey:</b>
+  <%= @production.fg_ukey %>
+</p>
+
+
+<%= link_to 'Edit', edit_production_path(@production) %> |
+<%= link_to 'Back', productions_path %>

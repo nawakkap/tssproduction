@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  displaydate: MyString
+  unita: 1
+  unita2: 1
+  unitb: 1
+  unitc: 1
+  unitd: 1
+  procdate: 2013-03-19
+  extprogcode: MyString
+  prodname: MyString
+  mach: MyString
+
+two:
+  displaydate: MyString
+  unita: 1
+  unita2: 1
+  unitb: 1
+  unitc: 1
+  unitd: 1
+  procdate: 2013-03-19
+  extprogcode: MyString
+  prodname: MyString
+  mach: MyString

@@ -1,0 +1,27 @@
+<h1>Listing productionreasons</h1>
+
+<table>
+  <tr>
+    <th>Mc</th>
+    <th>Seq</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @productionreasons.each do |productionreason| %>
+  <tr>
+    <td><%= productionreason.mc_id %></td>
+    <td><%= productionreason.seq %></td>
+    <td><%= productionreason.description %></td>
+    <td><%= link_to 'Show', productionreason %></td>
+    <td><%= link_to 'Edit', edit_productionreason_path(productionreason) %></td>
+    <td><%= link_to 'Destroy', productionreason, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Productionreason', new_productionreason_path %>
