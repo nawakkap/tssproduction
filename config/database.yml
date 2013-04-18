@@ -16,7 +16,7 @@ development:
   pool: 5
   username: root
   password: w,j[vd0Ut
-  socket: /tmp/mysql.sock
+  host: localhost
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -28,16 +28,18 @@ test:
   database: mysandbox_test
   pool: 5
   username: root
-  password:
-  socket: /tmp/mysql.sock
+  password: w,j[vd0Ut
+  host: localhost
   
 production:
-  adapter: postgresql
-  encoding: unicode
-  database: mysandbox_test_production
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: mysandbox_production
   pool: 5
-  username: test-postgres
-  password:
+  username: root
+  password: w,j[vd0Ut
+  host: localhost
 
 #legacy system
 tssapp:

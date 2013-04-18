@@ -10,6 +10,7 @@ gem 'therubyracer' , '= 0.10.2'
 gem 'composite_primary_keys'
 gem 'jquery-ui-rails'
 gem 'activerecord-sqlserver-adapter'
+gem 'twitter-bootstrap-rails'
 
 
 # Gems used only for assets and not required
@@ -22,7 +23,6 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
-  gem 'twitter-bootstrap-rails'
 end
 
 gem 'jquery-rails'
