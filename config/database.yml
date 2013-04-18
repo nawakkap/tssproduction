@@ -30,7 +30,15 @@ test:
   username: root
   password:
   socket: /tmp/mysql.sock
- 
+  
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: mysandbox_test_production
+  pool: 5
+  username: test-postgres
+  password:
+
 #legacy system
 tssapp:
   adapter: mysql2
