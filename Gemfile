@@ -4,8 +4,6 @@ gem 'rails', '3.2.11'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-gem 'mysql2'
 gem 'less-rails'
 gem 'therubyracer' , '= 0.10.2'
 gem 'composite_primary_keys'
@@ -27,6 +25,10 @@ group :assets do
 end
 
 gem 'jquery-rails'
+
+group :development, :test do
+  gem 'mysql2'
+end
 
 group :production do
   gem 'pg'
