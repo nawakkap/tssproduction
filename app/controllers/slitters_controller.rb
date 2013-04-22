@@ -2,10 +2,10 @@ class SlittersController < ApplicationController
   # GET /slitters
   # GET /slitters.json
   def index
-    @staffs = Staff.all
+    @staffs = Staff.slitter
     
     if params[:slitteddate] && params[:slitteddate] != "Select a date"
-      @slitters = Slitter.where(:sortDate => Date.parse(params[:slitteddate]).beginning_of_day..Date.parse(params[:slitteddate]).end_of_day)
+      @slitters = Slitter.where(:sortdate => Date.parse(params[:slitteddate]).beginning_of_day..Date.parse(params[:slitteddate]).end_of_day)
     else
       @slitters = Slitter.pastweek
     end
@@ -90,6 +90,28 @@ class SlittersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to slitters_url }
       format.json { head :no_content }
+    end
+  end
+  
+  def update_multiple
+    @slitters = Slitter.find(params[:slitter_ptime].keys)
+    
+    @slitters.each do |sl|  
+      sl.production.plannedtime = params[:slitter_ptime][sl.slukey]
+      sl.production.staff = params[:slitter_staff][sl.slukey]
+      sl.save
+    end
+    redirect_to slitters_path({:proddate => params[:proddate]})
+  end
+  
+  def show_productiondetail
+    @slitters = Slitter.find(params[:id])
+    @slittersreason = Productionreason.productionreason_sl
+    @productiondetails = @slitters.production.productiondetails
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @finishgood }
     end
   end
 end

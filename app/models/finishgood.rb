@@ -24,6 +24,7 @@ class Finishgood < ActiveRecord::Base
   attr_accessible :ukey, :displaydate, :extprogcode, :mach, :mc_id, :procdate, :prodname, :prodid, :unita, :unita2, :unitb, :unitc, :unitd
   
   default_scope order("sortDate DESC, machine")
+  
   scope :pastweek, lambda {
     where(:sortDate => 7.days.ago.beginning_of_day..Date.yesterday.end_of_day)
   }

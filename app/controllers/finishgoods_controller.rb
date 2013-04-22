@@ -3,7 +3,7 @@ class FinishgoodsController < ApplicationController
   # GET /finishgoods.json
   def index   
     @products = Product.all
-    @staffs = Staff.all
+    @staffs = Staff.forming
      
     if params[:proddate] && params[:proddate] != "Select a date"
       @finishgoods = Finishgood.where(:sortDate => Date.parse(params[:proddate]).beginning_of_day..Date.parse(params[:proddate]).end_of_day)

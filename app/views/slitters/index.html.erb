@@ -6,32 +6,47 @@
 		<%= submit_tag "Search"%>
 <% end -%>
 
+<%= form_for :slitters, :url => update_multiple_slitters_path, :method => :put do |f|-%>
+<%= f.submit %>
 <table class="table table-striped table-bordered table-condensed">
   <tr>
     <th>Slitteddate</th>
+		<th>Lot</th>
     <th>Thickness</th>
+		<th>Detail</th>
     <th>Machine</th>
+		<th>Planned T</th>
+		<th>Down T</th>
+		<th>Staff</th>
     <th>Slittedcoil</th>
     <th>Slittedweight</th>
-    <th></th>
-    <th></th>
+		<th>PR Rate</th>
+		<th>UT Rate</th>
     <th></th>
   </tr>
 
 <% @slitters.each do |slitter| %>
+<%= hidden_field_tag "proddate", slitter.slitteddate %>
   <tr>
     <td><%= slitter.slitteddate %></td>
+		<td><%= slitter.coil_group_code %></td>
     <td><%= slitter.thickness %></td>
-    <td><%= slitter.machine %></td>
-    <td><%= slitter.slittedcoil %></td>
+		<td><%= slitter.remark %></td>
+    <td><%= slitter.mach %></td>
+		<td><%= text_field_tag "slitter_ptime[#{slitter.slukey}]", slitter.production.plannedtime, :class => "inputsmall" %></td>
+		<td><%= slitter.sum_downtime %></td>
+		<td><%= select_tag "slitter_staff[#{slitter.slukey}]", 
+				options_from_collection_for_select(@staffs, 'id', 'name', slitter.production.staff), 				
+				:class => "inputmedium"  %></td>
+		<td><%= slitter.slittedcoil %></td>
     <td><%= slitter.slitterdweight %></td>
-    <td><%= link_to 'Show', slitter %></td>
-    <td><%= link_to 'Edit', edit_slitter_path(slitter) %></td>
-    <td><%= link_to 'Destroy', slitter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		<td><%= "#{number_with_precision slitter.pr_rate,:precision => 2}" %></td>
+		<td><%= "#{number_with_precision slitter.ut_rate,:precision => 2}" %></td>
+    <td><%= link_to 'Show', show_productiondetail_slitter_path(slitter) %></td>
   </tr>
 <% end %>
 </table>
+<% end %>
 
 <br />
 
-<%= link_to 'New Slitter', new_slitter_path %>

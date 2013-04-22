@@ -1,0 +1,79 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Slukey:</b>
+  <%= @slitters.slukey %>
+</p>
+
+<p>
+  <b>Slitteddate:</b>
+  <%= @slitters.slitteddate %>
+</p>
+
+<p>
+  <b>Thickness:</b>
+  <%= @slitters.thickness %>
+</p>
+
+<p>
+  <b>Machine:</b>
+  <%= @slitters.mach %>
+</p>
+
+<p>
+  <b>Slittedcoil:</b>
+  <%= @slitters.slittedcoil %>
+</p>
+
+<p>
+  <b>Slitterdweight:</b>
+  <%= @slitters.slitterdweight %>
+</p>
+
+<p>
+  <b>Planned Time:</b>
+  <%= @slitters.production.plannedtime %>
+</p>
+
+<p>
+  <b>Production ID:</b>
+  <%= @slitters.production.id %>
+</p>
+
+<p>
+  <b>Production Detail:</b>
+</p>
+
+<%= form_for :productions, :url => update_multiple_productions_path, :method => :put do |f|-%>
+<%= f.submit %>
+<%= hidden_field_tag "production_id", @slitters.production.id %>
+<%= hidden_field_tag "production_type", "slitters" %>
+<table class="table table-striped table-bordered table-condensed">
+	<tr class="row">
+		<th class="span1">Reason Code</th>
+		<th class="span4">Description</th>
+		<th class="span2">#</th>
+		<th class="span2">Time</th>
+		<th class="span8">Remark</th>
+	</tr>
+	<% @slittersreason.each do |sr| %>
+	<tr class="row">
+		<td><%= sr.seq %></td>
+		<td><%= sr.description %></td>
+		<td>
+			<%= text_field_tag "productiondetail_time[#{sr.seq}]",
+		 			(@productiondetails.find_by_productionreason_id(sr.seq).slot_time if 		@productiondetails.find_by_productionreason_id(sr.seq)) , 
+					:class => "inputsmall" %>
+			<%= "x5"%>
+		</td>
+		<td><%= @productiondetails.find_by_productionreason_id(sr.seq).time if 		@productiondetails.find_by_productionreason_id(sr.seq)%></td>
+		<td>
+			<%= text_field_tag "productiondetail_remark[#{sr.seq}]",
+		 			(@productiondetails.find_by_productionreason_id(sr.seq).remark if 		@productiondetails.find_by_productionreason_id(sr.seq)) , 
+					:class => "inputlarge" %>
+		</td>
+	</tr>
+	<% end %>
+</table>
+<% end %>
+

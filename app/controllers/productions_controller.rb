@@ -83,7 +83,11 @@ class ProductionsController < ApplicationController
   
   def update_multiple
     @production = Production.find(params[:production_id])
-    @finishgoodreason = Productionreason.productionreason_default
+    if params[:production_type] == "slitters"
+      @finishgoodreason = Productionreason.productionreason_sl
+    else
+      @finishgoodreason = Productionreason.productionreason_default
+    end
     
     @finishgoodreason.each do |fr|
       if p = @production.productiondetails.find_by_productionreason_id(fr.seq)
@@ -97,6 +101,11 @@ class ProductionsController < ApplicationController
       end
     end
     
-    redirect_to show_productiondetail_finishgood_path({:id => @production.fg_ukey})
+    if params[:production_type] == "slitters"
+      redirect_to show_productiondetail_slitter_path({:id => @production.fg_ukey})
+    else
+      redirect_to show_productiondetail_finishgood_path({:id => @production.fg_ukey})
+    end
+    
   end
 end
