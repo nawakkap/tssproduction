@@ -25,7 +25,7 @@ class Slitter < ActiveRecord::Base
   
   def pr_rate
     if self.production.plannedtime
-      weight.to_f/self.production.plannedtime/thickness/0.0471/1224
+      weight.to_f/self.production.plannedtime/thickness/0.0471/1224*6
     else
       ""
     end
@@ -33,7 +33,7 @@ class Slitter < ActiveRecord::Base
   
   def ut_rate
     if self.sum_downtime && self.production.plannedtime
-      weight.to_f/(self.production.plannedtime - self.sum_downtime)/thickness/0.0471/1224
+      weight.to_f/(self.production.plannedtime - self.sum_downtime)/thickness/0.0471/1224*6
     else
       ""
     end
