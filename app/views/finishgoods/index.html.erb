@@ -1,14 +1,18 @@
 <h1>Listing finishgoods</h1>
 
 <%= form_tag('/finishgoods', :method => :get, :class => 'form-inline') do %>
-		<%= label_tag(:proddate, "Produced Date") %>
+		<%= label_tag(:proddate, "Produced Date Between") %>
   	<%= text_field_tag :proddate, "Select a date", :class => 'datepicker' %>
+		<%= label_tag(:proddate2, "And") %>
+		<%= text_field_tag :proddate2, "Select a date", :class => 'datepicker' %>
 		<%= submit_tag "Search"%>
 <% end -%>
 
+<button id="toxls" class="btn">Prepare for Excel</button>
+
 <%= form_for :finishgoods, :url => update_multiple_finishgoods_path, :method => :put do |f|-%>
 <%= f.submit %>
-<table class="table table-striped table-bordered table-condensed">
+<table id="finishgoods" class="table table-striped table-bordered table-condensed">
   <tr>
     <th>Date</th>
     <th>Lot ID</th>
@@ -40,6 +44,7 @@
 			<td><%= text_field_tag "finishgoods_ptime[#{finishgood.ukey}]", finishgood.production.plannedtime, :class => "inputsmall" %></td>
 			<td><%= finishgood.sum_downtime %></td>
 			<td>
+				<%= hidden_field_tag "hiddenfinishgoods_staff[#{finishgood.ukey}]", finishgood.production.staff %>
 				<%= select_tag "finishgoods_staff[#{finishgood.ukey}]", 
 						options_from_collection_for_select(@staffs, 'id', 'name', finishgood.production.staff), 				
 						:class => "inputmedium"  %>
@@ -63,5 +68,10 @@
 <% end -%>
 
 <br />
+
+$('#finishgoods td input[type="text"]').each(function() {
+  var val = $(this).val();
+  $(this).parent('td').html(val);
+});
 
 

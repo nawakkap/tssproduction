@@ -28,6 +28,15 @@ class Finishgood < ActiveRecord::Base
   scope :pastweek, lambda {
     where(:sortDate => 7.days.ago.beginning_of_day..Date.yesterday.end_of_day)
   }
+  
+  scope :atdate, lambda {|proddate|
+    where(:sortDate => Date.parse(proddate).beginning_of_day..Date.parse(proddate).end_of_day)
+  }
+  
+  scope :betweendate, lambda {|proddate, proddate2|
+    where(:sortDate => Date.parse(proddate).beginning_of_day..Date.parse(proddate2).end_of_day)
+  }
+  
   scope :yesterday, lambda {
     where(:sortDate => Date.yesterday.beginning_of_day..Date.yesterday.end_of_day)
   }

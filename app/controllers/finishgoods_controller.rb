@@ -5,8 +5,10 @@ class FinishgoodsController < ApplicationController
     @products = Product.all
     @staffs = Staff.forming
      
-    if params[:proddate] && params[:proddate] != "Select a date"
-      @finishgoods = Finishgood.where(:sortDate => Date.parse(params[:proddate]).beginning_of_day..Date.parse(params[:proddate]).end_of_day)
+    if params[:proddate] && params[:proddate] != "Select a date" && params[:proddate2] == "Select a date"
+      @finishgoods = Finishgood.atdate(params[:proddate])
+    elsif params[:proddate] && params[:proddate] != "Select a date" && params[:proddate2] != "Select a date"
+      @finishgoods = Finishgood.betweendate(params[:proddate], params[:proddate2])
     else
       @finishgoods = Finishgood.pastweek
     end
@@ -118,4 +120,5 @@ class FinishgoodsController < ApplicationController
       format.json { render json: @finishgood }
     end
   end
+  
 end
