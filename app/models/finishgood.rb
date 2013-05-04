@@ -98,7 +98,7 @@ class Finishgood < ActiveRecord::Base
   end
   
   def scrap_rate
-    if self.production.scrap && self.throughput1
+    if self.production.scrap && self.throughput1 && self.plannedtime
       self.production.scrap/self.throughput1/1000*100
     else
       ""
