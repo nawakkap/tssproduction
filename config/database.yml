@@ -12,11 +12,11 @@ development:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: mysandbox_development1
+  database: mysandbox_development
   pool: 5
-  username: root
-  password: w,j[vd0Ut
-  host: localhost
+  username: note
+  password: note
+  host: 192.168.1.8
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -27,9 +27,9 @@ test:
   reconnect: false
   database: mysandbox_test
   pool: 5
-  username: root
-  password: w,j[vd0Ut
-  host: localhost
+  username: note
+  password: note
+  host: 192.168.1.8
   
 production:
   adapter: mysql2
@@ -37,9 +37,9 @@ production:
   reconnect: false
   database: mysandbox_production
   pool: 5
-  username: root
-  password: w,j[vd0Ut
-  host: localhost
+  username: note
+  password: note
+  host: 192.168.1.8
 
 #legacy system
 tssapp:
