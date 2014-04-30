@@ -27,4 +27,5 @@ insert into `productionreasons` (`id`, `mc_id`, `seq`, `description`, `created_a
 insert into `productionreasons` (`id`, `mc_id`, `seq`, `description`, `created_at`, `updated_at`) values('8',NULL,'8','เครื่องเสีย','2014-04-30 13:22:19','2014-04-30 13:22:22');
 insert into `productionreasons` (`id`, `mc_id`, `seq`, `description`, `created_at`, `updated_at`) values('9',NULL,'9','ซ่อมบำรุง','2014-04-30 13:22:19','2014-04-30 13:22:22');
 insert into `productionreasons` (`id`, `mc_id`, `seq`, `description`, `created_at`, `updated_at`) values('10',NULL,'10','เปลี่ยนใบเลื่อย','2014-04-30 13:22:19','2014-04-30 13:22:22');
-insert into `productionreasons` (`id`, `mc_id`, `seq`, `description`, `created_at`, `updated_at`) values('11',NULL,'11','อื่นๆ','2014-04-30 13:22:19','2014-04-30 13:22:22');
+insert into `productionreasons` (`id`, `mc_id`, `seq`, `description`, `created_at`, `updated_at`) values('11',NULL,'11','ประชุม','2014-04-30 13:22:19','2014-04-30 13:22:22');
+insert into `productionreasons` (`id`, `mc_id`, `seq`, `description`, `created_at`, `updated_at`) values('12',NULL,'12','อื่นๆ','2014-04-30 13:22:19','2014-04-30 13:22:22');
