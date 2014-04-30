@@ -12,7 +12,7 @@ development:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: mysandbox_development
+  database: mysandbox_development1
   pool: 5
   username: root
   password: w,j[vd0Ut
@@ -46,9 +46,9 @@ tssapp:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: db_tstandardsteel_new
+  database: db_tstandardsteel_v3
   pool: 5
   username: note
   password: note
-  host: tss.no-ip.biz
-  #host: 192.168.1.8
+  #host: tss.no-ip.biz
+  host: 192.168.1.8
